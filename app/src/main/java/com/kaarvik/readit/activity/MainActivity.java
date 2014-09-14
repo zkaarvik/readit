@@ -6,9 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kaarvik.readit.R;
+import com.kaarvik.readit.fragment.SubredditFragment;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements SubredditFragment.OnSubredditListPress {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +35,13 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+    * TODO: handle pressing a link of the subreddit
+    */
+    public void onSubredditListPress(int position) {
+        //Comes from subreddit fragment
+        //Need to implement to act on a link being pressed
     }
 }
