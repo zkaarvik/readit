@@ -1,9 +1,11 @@
-package com.kaarvik.readit;
+package com.kaarvik.readit.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.kaarvik.readit.R;
 
 
 public class MainActivity extends Activity {
