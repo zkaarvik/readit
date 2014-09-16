@@ -6,8 +6,11 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.kaarvik.readit.R;
+import com.kaarvik.readit.adapters.LinkAdapter;
+import com.kaarvik.readit.object.RedditLink;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +33,7 @@ public class SubredditFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param name Parameter 1.
+     * @param name The Name of the Subreddit this fragment will display.
      * @return A new instance of fragment SubredditFragment.
      */
     public static SubredditFragment newInstance(String name) {
@@ -56,7 +59,21 @@ public class SubredditFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subreddit, container, false);
+        View view = inflater.inflate(R.layout.fragment_subreddit, container, false);
+
+        //TODO: Remove test implementation
+        //Test code for adapter implementation
+        RedditLink link1 = new RedditLink();
+        link1.setName("Look at my cat!");
+        RedditLink link2 = new RedditLink();
+        link2.setName("People falling down video");
+        RedditLink[] links = new RedditLink[] {link1, link2};
+
+        LinkAdapter linkAdapter = new LinkAdapter(getActivity(), links);
+        ListView listView = (ListView) view.findViewById(R.id.subreddit_link_list);
+        listView.setAdapter(linkAdapter);
+
+        return view;
     }
 
     public void onListPressed(int position) {
