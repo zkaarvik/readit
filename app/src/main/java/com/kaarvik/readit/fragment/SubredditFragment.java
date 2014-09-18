@@ -61,7 +61,7 @@ public class SubredditFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_subreddit, container, false);
 
-        //TODO: Remove test implementation
+        //TODO: Remove test implementation, implement retrieval of real data
         //Test code for adapter implementation
         RedditLink link1 = new RedditLink();
         link1.setName("Look at my cat!");
