@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.kaarvik.readit.R;
 import com.kaarvik.readit.adapters.LinkAdapter;
+import com.kaarvik.readit.net.NetRequest;
 import com.kaarvik.readit.object.RedditLink;
 
 /**
