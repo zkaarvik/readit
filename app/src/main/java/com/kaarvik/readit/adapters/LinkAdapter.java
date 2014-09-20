@@ -38,7 +38,7 @@ public class LinkAdapter extends ArrayAdapter<RedditLink> {
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         //ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
-        textView.setText(links[position].getName());
+        textView.setText(links[position].getTitle());
 
         return rowView;
     }
