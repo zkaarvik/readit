@@ -7,17 +7,21 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.kaarvik.readit.util.LruBitmapCache;
 
 /**
- * Created by Zach on 9/18/2014.
+ * Created by Zach on 9/18/2014
  */
+
 public class AppController extends Application {
 
     public static final String TAG = AppController.class.getSimpleName();
 
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;
+    private Gson gson;
 
     private static AppController instance;
 
@@ -45,6 +49,15 @@ public class AppController extends Application {
             imageLoader = new ImageLoader(this.requestQueue, new LruBitmapCache());
         }
         return imageLoader;
+    }
+
+    public Gson getGson() {
+        if(gson == null) {
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            //gsonBuilder.registerTypeAdapter(RedditLink.class, new RedditLinkDeserializer());
+            gson = gsonBuilder.create();
+        }
+        return gson;
     }
 
     public <T> void addToRequestQueue(Request<T> req, String tag) {

@@ -24,14 +24,14 @@ public class NetRequest {
 
     public static void StringRequest(String url, Response.Listener<String> callback) {
         StringRequest strReq = new StringRequest(Request.Method.GET,
-                url,
-                callback,
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d("ERR", "Error: " + error.getMessage());
-                    }
-                });
+            url,
+            callback,
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.d("ERR", "Error: " + error.getMessage());
+                }
+            });
 
         AppController.getInstance().addToRequestQueue(strReq, "StringRequest");
     }

@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.android.volley.Response;
 import com.kaarvik.readit.R;
 import com.kaarvik.readit.adapters.LinkAdapter;
 import com.kaarvik.readit.net.NetRequest;
+import com.kaarvik.readit.net.RedditRequest;
 import com.kaarvik.readit.object.RedditLink;
 
 /**
@@ -27,6 +29,7 @@ public class SubredditFragment extends Fragment {
     private static final String SUBREDDIT_NAME = "param1";
 
     private String name;
+    private View view;
 
     private OnSubredditListPress mListener;
 
@@ -60,21 +63,23 @@ public class SubredditFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_subreddit, container, false);
+        this.view = inflater.inflate(R.layout.fragment_subreddit, container, false);
 
-        //TODO: Remove test implementation, implement retrieval of real data
-        //Test code for adapter implementation
-        RedditLink link1 = new RedditLink();
-        link1.setName("Look at my cat!");
-        RedditLink link2 = new RedditLink();
-        link2.setName("People falling down video");
-        RedditLink[] links = new RedditLink[] {link1, link2};
+        //Get subreddit listing
+        //TODO: use a passed subreddit name
+        RedditRequest.requestSubredditLinkArray(this, "");
 
-        LinkAdapter linkAdapter = new LinkAdapter(getActivity(), links);
-        ListView listView = (ListView) view.findViewById(R.id.subreddit_link_list);
-        listView.setAdapter(linkAdapter);
+//        LinkAdapter linkAdapter = new LinkAdapter(getActivity(), links);
+//        ListView listView = (ListView) this.view.findViewById(R.id.subreddit_link_list);
+//        listView.setAdapter(linkAdapter);
 
         return view;
+    }
+
+    public void onSubredditLoaded(RedditLink[] redditLinks){
+        LinkAdapter linkAdapter = new LinkAdapter(getActivity(), redditLinks);
+        ListView listView = (ListView) this.view.findViewById(R.id.subreddit_link_list);
+        listView.setAdapter(linkAdapter);
     }
 
     public void onListPressed(int position) {

@@ -1,7 +1,7 @@
 package com.kaarvik.readit.object;
 
 /**
- * Created by Zach on 9/15/2014.
+ * Created by Zach on 9/15/2014
  */
 public class RedditLink {
 
@@ -22,30 +22,55 @@ public class RedditLink {
     private String author_flair_text;
     private int gilded;
     private int score;
-    private int created;            //Should this be a date type?
-    private int created_utc;        //Should this be a date type?
+    private int created;        //Should this be a date type?
+    private int created_utc;    //Should this be a date type?
     private int ups;
     private int num_comments;
-    private int downs;          //Reddit is not showing the number of downvotes anymore, probably won't use
+    private int downs;              //Reddit is not showing the number of downvotes anymore, probably won't use
+    //private int edited;   //From API: 'False' if not edited, date int if edited
     private Boolean clicked;
     private Boolean over_18;
     private Boolean hidden;
-    private Boolean edited;
     private Boolean saved;
     private Boolean is_self;
     private Boolean stickied;
     private Boolean visited;
     //media_embed: {}           //For Youtube, others?
-    //likes: null               //Unknown
     //secure_media: null        //For Youtube, others?
     //secure_media_embed: {}    //For Youtube, others?
-    //report_reasons: null      //Unknown
     //media: null               //For Youtube, others?
+    //likes: null               //Unknown
+    //report_reasons: null      //Unknown
     //approved_by: null         //Unknown
+    //distinguished: null       //Unknown
+    //num_reports: null         //Probably a string
     //link_flair_css_class: null    //No plans to use CSS at the moment
     //author_flair_css_class: null  //No plans to use CSS at the moment
-    //num_reports: null             //Probably a string
-    //distinguished: null           //Unknown
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public String getDomain() {
         return domain;
@@ -53,6 +78,14 @@ public class RedditLink {
 
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getBanned_by() {
@@ -63,12 +96,12 @@ public class RedditLink {
         this.banned_by = banned_by;
     }
 
-    public String getSubreddit() {
-        return subreddit;
+    public String getSelftext() {
+        return selftext;
     }
 
-    public void setSubreddit(String subreddit) {
-        this.subreddit = subreddit;
+    public void setSelftext(String selftext) {
+        this.selftext = selftext;
     }
 
     public String getSelftext_html() {
@@ -79,12 +112,12 @@ public class RedditLink {
         this.selftext_html = selftext_html;
     }
 
-    public String getSelftext() {
-        return selftext;
+    public String getSubreddit() {
+        return subreddit;
     }
 
-    public void setSelftext(String selftext) {
-        this.selftext = selftext;
+    public void setSubreddit(String subreddit) {
+        this.subreddit = subreddit;
     }
 
     public String getLink_flair_text() {
@@ -103,54 +136,6 @@ public class RedditLink {
         this.id = id;
     }
 
-    public int getGilded() {
-        return gilded;
-    }
-
-    public void setGilded(int gilded) {
-        this.gilded = gilded;
-    }
-
-    public Boolean getClicked() {
-        return clicked;
-    }
-
-    public void setClicked(Boolean clicked) {
-        this.clicked = clicked;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public Boolean getOver_18() {
-        return over_18;
-    }
-
-    public void setOver_18(Boolean over_18) {
-        this.over_18 = over_18;
-    }
-
-    public Boolean getHidden() {
-        return hidden;
-    }
-
-    public void setHidden(Boolean hidden) {
-        this.hidden = hidden;
-    }
-
     public String getThumbnail() {
         return thumbnail;
     }
@@ -167,76 +152,12 @@ public class RedditLink {
         this.subreddit_id = subreddit_id;
     }
 
-    public Boolean getEdited() {
-        return edited;
-    }
-
-    public void setEdited(Boolean edited) {
-        this.edited = edited;
-    }
-
-    public int getDowns() {
-        return downs;
-    }
-
-    public void setDowns(int downs) {
-        this.downs = downs;
-    }
-
-    public Boolean getSaved() {
-        return saved;
-    }
-
-    public void setSaved(Boolean saved) {
-        this.saved = saved;
-    }
-
-    public Boolean getIs_self() {
-        return is_self;
-    }
-
-    public void setIs_self(Boolean is_self) {
-        this.is_self = is_self;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPermalink() {
         return permalink;
     }
 
     public void setPermalink(String permalink) {
         this.permalink = permalink;
-    }
-
-    public Boolean getStickied() {
-        return stickied;
-    }
-
-    public void setStickied(Boolean stickied) {
-        this.stickied = stickied;
-    }
-
-    public int getCreated() {
-        return created;
-    }
-
-    public void setCreated(int created) {
-        this.created = created;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public String getAuthor_flair_text() {
@@ -247,12 +168,28 @@ public class RedditLink {
         this.author_flair_text = author_flair_text;
     }
 
-    public String getTitle() {
-        return title;
+    public int getGilded() {
+        return gilded;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setGilded(int gilded) {
+        this.gilded = gilded;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getCreated() {
+        return created;
+    }
+
+    public void setCreated(int created) {
+        this.created = created;
     }
 
     public int getCreated_utc() {
@@ -279,6 +216,70 @@ public class RedditLink {
         this.num_comments = num_comments;
     }
 
+    public int getDowns() {
+        return downs;
+    }
+
+    public void setDowns(int downs) {
+        this.downs = downs;
+    }
+
+//    public int getEdited() {
+//        return edited;
+//    }
+//
+//    public void setEdited(int edited) {
+//        this.edited = edited;
+//    }
+
+    public Boolean getClicked() {
+        return clicked;
+    }
+
+    public void setClicked(Boolean clicked) {
+        this.clicked = clicked;
+    }
+
+    public Boolean getOver_18() {
+        return over_18;
+    }
+
+    public void setOver_18(Boolean over_18) {
+        this.over_18 = over_18;
+    }
+
+    public Boolean getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public Boolean getSaved() {
+        return saved;
+    }
+
+    public void setSaved(Boolean saved) {
+        this.saved = saved;
+    }
+
+    public Boolean getIs_self() {
+        return is_self;
+    }
+
+    public void setIs_self(Boolean is_self) {
+        this.is_self = is_self;
+    }
+
+    public Boolean getStickied() {
+        return stickied;
+    }
+
+    public void setStickied(Boolean stickied) {
+        this.stickied = stickied;
+    }
+
     public Boolean getVisited() {
         return visited;
     }
@@ -286,5 +287,4 @@ public class RedditLink {
     public void setVisited(Boolean visited) {
         this.visited = visited;
     }
-
 }

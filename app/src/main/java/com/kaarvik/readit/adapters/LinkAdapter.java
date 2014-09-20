@@ -11,8 +11,9 @@ import com.kaarvik.readit.R;
 import com.kaarvik.readit.object.RedditLink;
 
 /**
- * Created by Zach on 9/15/2014.
+ * Created by Zach on 9/15/2014
  */
+
 public class LinkAdapter extends ArrayAdapter<RedditLink> {
     private final Context context;
     private final RedditLink[] links;
