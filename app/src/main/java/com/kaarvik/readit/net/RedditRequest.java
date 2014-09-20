@@ -1,6 +1,5 @@
 package com.kaarvik.readit.net;
 
-import android.app.Fragment;
 import android.util.Log;
 
 import com.android.volley.Response;
@@ -19,6 +18,11 @@ import java.lang.reflect.Type;
  */
 
 public class RedditRequest {
+
+    private static final String protocol = "https://";
+    private static final String redditUrl = "www.reddit.com/";
+    private static final String subreddit = "r/";
+    private static final String json = ".json";
 
     public static void requestSubredditLinkArray(final SubredditFragment fragment, String name) {
 
@@ -41,6 +45,12 @@ public class RedditRequest {
             }
         };
 
-        NetRequest.StringRequest("https://www.reddit.com/.json", callback);
+        String completeUrl;
+        if(name.equals("")) {
+            completeUrl = protocol + redditUrl + json;
+        } else {
+            completeUrl = protocol + redditUrl + subreddit + name + json;
+        }
+        NetRequest.StringRequest(completeUrl, callback);
     }
 }

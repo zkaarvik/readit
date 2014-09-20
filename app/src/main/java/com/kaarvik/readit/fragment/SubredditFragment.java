@@ -66,12 +66,7 @@ public class SubredditFragment extends Fragment {
         this.view = inflater.inflate(R.layout.fragment_subreddit, container, false);
 
         //Get subreddit listing
-        //TODO: use a passed subreddit name
         RedditRequest.requestSubredditLinkArray(this, "");
-
-//        LinkAdapter linkAdapter = new LinkAdapter(getActivity(), links);
-//        ListView listView = (ListView) this.view.findViewById(R.id.subreddit_link_list);
-//        listView.setAdapter(linkAdapter);
 
         return view;
     }
