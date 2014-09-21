@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.kaarvik.readit.R;
 import com.kaarvik.readit.object.RedditLink;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by Zach on 9/15/2014
  */
@@ -35,10 +37,14 @@ public class LinkAdapter extends ArrayAdapter<RedditLink> {
             rowView = inflater.inflate(R.layout.adapter_link, parent, false);
         }
 
-        TextView textView = (TextView) rowView.findViewById(R.id.label);
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+        TextView title = (TextView) rowView.findViewById(R.id.title);
+        title.setText(links[position].getTitle());
+        //title.setCompoundDrawablesWithIntrinsicBounds(int left, 0, 0, 0); //Drawable displayed next to link title
 
-        textView.setText(links[position].getTitle());
+        TextView author = (TextView) rowView.findViewById(R.id.authorWithSub);
+        String authorWithSub = context.getText(R.string.link_by) + " " + links[position].getAuthor() + " " +
+                context.getText(R.string.link_in) + " " + context.getText(R.string.link_subreddit_prefix) + links[position].getSubreddit();
+        author.setText(authorWithSub);
 
         return rowView;
     }
