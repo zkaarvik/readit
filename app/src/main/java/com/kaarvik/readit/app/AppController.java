@@ -9,6 +9,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.kaarvik.readit.gsonHelper.BooleanDeserializer;
 import com.kaarvik.readit.util.LruBitmapCache;
 
 /**
@@ -54,7 +55,7 @@ public class AppController extends Application {
     public Gson getGson() {
         if(gson == null) {
             GsonBuilder gsonBuilder = new GsonBuilder();
-            //gsonBuilder.registerTypeAdapter(RedditLink.class, new RedditLinkDeserializer());
+            gsonBuilder.registerTypeAdapter(Boolean.class, new BooleanDeserializer());
             gson = gsonBuilder.create();
         }
         return gson;

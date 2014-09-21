@@ -27,7 +27,7 @@ public class RedditLink {
     private int ups;
     private int num_comments;
     private int downs;              //Reddit is not showing the number of downvotes anymore, probably won't use
-    //private int edited;   //From API: 'False' if not edited, date int if edited
+    private Boolean edited;   //From API: 'False' if not edited, date int if edited
     private Boolean clicked;
     private Boolean over_18;
     private Boolean hidden;
@@ -224,13 +224,13 @@ public class RedditLink {
         this.downs = downs;
     }
 
-//    public int getEdited() {
-//        return edited;
-//    }
-//
-//    public void setEdited(int edited) {
-//        this.edited = edited;
-//    }
+    public Boolean getEdited() {
+        return edited;
+    }
+
+    public void setEdited(Boolean edited) {
+        this.edited = edited;
+    }
 
     public Boolean getClicked() {
         return clicked;
